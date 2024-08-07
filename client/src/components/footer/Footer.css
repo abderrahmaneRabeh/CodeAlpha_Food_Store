@@ -48,3 +48,18 @@ div.footer {
     border: none;
   }
 }
+
+/* RESPONSIVE */
+
+@media (width < 800px) {
+  div.footer {
+    & .content {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+    & .footer-copyright {
+      text-align: center;
+    }
+  }
+}

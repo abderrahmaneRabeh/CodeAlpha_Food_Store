@@ -1,6 +1,7 @@
 import "./navbar.css";
 import { assets } from "../../assets/assets";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   // eslint-disable-next-line no-unused-vars
@@ -9,30 +10,34 @@ const Navbar = () => {
     <div className="navbar">
       <img src={assets.logo} alt="" className="logo" />
       <ul className="navbar-menu">
-        <li
+        <Link
+          to="/"
           onClick={() => setmenu("home")}
           className={menu == "home" ? "active" : ""}
         >
           home
-        </li>
-        <li
+        </Link>
+        <a
+          href="#explore-menu"
           onClick={() => setmenu("menu")}
           className={menu == "menu" ? "active" : ""}
         >
           menu
-        </li>
-        <li
+        </a>
+        <a
+          href="#AppDownload"
           onClick={() => setmenu("mobile")}
           className={menu == "mobile" ? "active" : ""}
         >
           mobile
-        </li>
-        <li
+        </a>
+        <a
+          href="#footer"
           onClick={() => setmenu("contact")}
           className={menu == "contact" ? "active" : ""}
         >
           contact
-        </li>
+        </a>
       </ul>
       <div className="navbar-right">
         <img src={assets.search_icon} alt="" />

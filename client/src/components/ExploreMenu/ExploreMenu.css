@@ -59,3 +59,14 @@ div.explore-menu {
     background-color: #f0f0f0;
   }
 }
+
+/* responsive */
+
+@media (width < 1050px) {
+  div.explore-menu {
+    & .explore-menu-p {
+      max-width: 100%;
+      font-size: 14px;
+    }
+  }
+}

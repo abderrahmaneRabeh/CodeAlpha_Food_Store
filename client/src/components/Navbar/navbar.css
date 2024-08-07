@@ -60,3 +60,56 @@ div.navbar {
     }
   }
 }
+
+/* responsive part */
+
+@media (width < 1050px) {
+  div.navbar {
+    & .logo {
+      width: 140px;
+    }
+    & ul.navbar-menu {
+      gap: 20px;
+      font-size: 17px;
+    }
+    & .navbar-right {
+      gap: 30px;
+      & img {
+        width: 22px;
+      }
+      & button {
+        padding: 8px 25px;
+      }
+    }
+  }
+}
+
+@media (width < 900px) {
+  div.navbar {
+    & .logo {
+      width: 140px;
+    }
+    & ul.navbar-menu {
+      gap: 15px;
+      font-size: 16px;
+    }
+    & .navbar-right {
+      gap: 20px;
+      & img {
+        width: 20px;
+      }
+      & button {
+        padding: 7px 20px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media (width < 700px) {
+  div.navbar {
+    & ul.navbar-menu {
+      display: none;
+    }
+  }
+}

@@ -43,3 +43,28 @@ div.header {
     }
   }
 }
+
+/* MEDIA QUERIES */
+
+@media (width < 1050px) {
+  div.header {
+    & .content {
+      max-width: 45%;
+    }
+  }
+}
+@media (width < 750px) {
+  div.header {
+    & .content {
+      max-width: 65%;
+
+      & p {
+        display: none;
+      }
+
+      & button {
+        padding: 2vw 4vw;
+      }
+    }
+  }
+}
