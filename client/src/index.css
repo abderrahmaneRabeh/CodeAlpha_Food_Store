@@ -22,3 +22,41 @@ a {
   width: 80%;
   margin: auto;
 }
+
+.scroll-top {
+  background-color: tomato;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 2rem;
+  right: 3%;
+  text-align: center;
+  border: 1px solid #ffffff44;
+  font-size: 1.4rem;
+  color: #fff;
+  transition: 0.3s;
+  opacity: 0.8;
+}
+
+.scroll-top:hover {
+  background-color: rgb(255, 69, 37);
+  cursor: pointer;
+  scale: 0.9;
+}
+
+::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+::-webkit-scrollbar-track {
+  border: 7px solid rgb(243, 243, 243);
+  background-color: tomato;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: tomato;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(255, 38, 0);
+}

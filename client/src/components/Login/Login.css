@@ -1,0 +1,90 @@
+div.login {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #00000090;
+  display: grid;
+
+  & .login-container {
+    place-self: center;
+    width: max(23vw, 330px);
+    color: #808080;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px 30px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  & .login-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #000;
+
+    & img {
+      width: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        rotate: 90deg;
+      }
+    }
+  }
+  & .login-input {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    & input {
+      outline: none;
+      border: 1px solid #c9c9c9;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  }
+  & button {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: tomato;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      scale: 0.98;
+      background-color: rgb(250, 69, 37);
+    }
+  }
+
+  & .login-condition {
+    display: flex;
+    align-items: start;
+    gap: 8px;
+    margin-top: -15px;
+
+    & input {
+      margin-top: 4px;
+      &:checked {
+        accent-color: tomato;
+      }
+    }
+  }
+
+  & .changeIt {
+    color: tomato;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      scale: 1.01;
+      color: rgb(244, 45, 10);
+    }
+  }
+}
