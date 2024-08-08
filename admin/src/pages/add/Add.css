@@ -1,0 +1,61 @@
+div.add {
+  width: 70%;
+  margin-left: max(5vw, 25px);
+  margin-top: 50px;
+  color: #a6a6a6;
+  font-size: 16px;
+
+  & p {
+    color: #000;
+    font-weight: 500;
+  }
+
+  & form {
+    gap: 20px;
+  }
+
+  & .add-img-upload img {
+    cursor: pointer;
+    width: 120px;
+    transition: 0.3s;
+
+    &:hover {
+      scale: 0.97;
+    }
+  }
+
+  & .add-product-name,
+  & .add-product-description {
+    width: max(40%, 300px);
+
+    & textarea,
+    & input {
+      padding: 10px;
+    }
+  }
+
+  & .add-category-price {
+    display: flex;
+    gap: 30px;
+
+    & select,
+    & input {
+      max-width: 120px;
+      padding: 10px;
+    }
+  }
+
+  & button.add-btn {
+    max-width: 120px;
+    border: none;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      scale: 0.97;
+    }
+  }
+}
