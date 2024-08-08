@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import { connectDB } from "./config/db.js";
+import foodRouter from "./routes/foodRoute.js";
 
 // Congiguration
 
@@ -19,6 +21,15 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
+
+// DB CONNECTION
+
+connectDB();
+
+// API ENDPOINTS
+
+app.use("/api/food", foodRouter);
+app.use("/images", express.static("uploads"));
 
 // RUN SERVER
 
