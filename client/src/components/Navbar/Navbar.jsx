@@ -1,12 +1,20 @@
 import "./navbar.css";
 import { assets } from "../../assets/assets";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../../context/StoreContext";
 
 // eslint-disable-next-line react/prop-types
 const Navbar = ({ setshowLogin }) => {
-  const { getTotalCartAmount } = useContext(StoreContext);
+  const { getTotalCartAmount, token, settoken } = useContext(StoreContext);
+
+  const naviate = useNavigate();
+  const logout = () => {
+    settoken("");
+    localStorage.removeItem("token");
+    naviate("/");
+  };
+
   // eslint-disable-next-line no-unused-vars
   const [menu, setmenu] = useState("home");
   return (
@@ -53,7 +61,24 @@ const Navbar = ({ setshowLogin }) => {
           </Link>
           <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
         </div>
-        <button onClick={() => setshowLogin(true)}>Sign in</button>
+        {!token ? (
+          <button onClick={() => setshowLogin(true)}>Sign in</button>
+        ) : (
+          <div className="nav-profile">
+            <img src={assets.profile_icon} alt="" />
+            <ul className="nav-drop-down">
+              <li>
+                <img src={assets.bag_icon} alt="" />
+                <p>orders</p>
+              </li>
+              <hr />
+              <li>
+                <img src={assets.logout_icon} alt="" />
+                <p onClick={logout}>Logout</p>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );
