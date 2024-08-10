@@ -7,10 +7,11 @@ export const StoreContext = React.createContext(null);
 const StoreContextProvider = (props) => {
   const [cartItem, setcartItem] = useState({});
   const [food_list, setFoodList] = useState([]);
+  const [userName, setUserName] = useState("");
   const url = "http://localhost:4000";
   const [token, settoken] = useState("");
 
-  const addToCart = (itemId) => {
+  const addToCart = async (itemId) => {
     if (!cartItem[itemId]) {
       setcartItem((prev) => {
         return { ...prev, [itemId]: 1 };
@@ -20,10 +21,24 @@ const StoreContextProvider = (props) => {
         return { ...prev, [itemId]: prev[itemId] + 1 };
       });
     }
+    if (token) {
+      await axios.post(
+        `${url}/api/cart/add`,
+        { itemId },
+        { headers: { token } }
+      );
+    }
   };
 
-  const removeFromCart = (itemId) => {
+  const removeFromCart = async (itemId) => {
     setcartItem((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+    if (token) {
+      await axios.post(
+        `${url}/api/cart/remove`,
+        { itemId },
+        { headers: { token } }
+      );
+    }
   };
 
   const getTotalCartAmount = () => {
@@ -40,7 +55,14 @@ const StoreContextProvider = (props) => {
   const getfood_list = async () => {
     const response = await axios.get(`${url}/api/food/list`);
     setFoodList(response.data.data);
-    console.log("data", response.data.data);
+  };
+
+  const loadCartData = async (token) => {
+    const response = await axios.get(`${url}/api/cart/list`, {
+      headers: { token },
+    });
+
+    setcartItem(response.data.cartData);
   };
 
   useEffect(() => {
@@ -48,10 +70,14 @@ const StoreContextProvider = (props) => {
       await getfood_list();
       if (localStorage.getItem("token")) {
         settoken(localStorage.getItem("token"));
+        await loadCartData(localStorage.getItem("token"));
+      }
+      if (localStorage.getItem("userName")) {
+        setUserName(localStorage.getItem("userName"));
       }
     }
     fetchData();
-    console.log(food_list);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -65,6 +91,8 @@ const StoreContextProvider = (props) => {
     url,
     token,
     settoken,
+    userName,
+    setUserName,
   };
 
   return (

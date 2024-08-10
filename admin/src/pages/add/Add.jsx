@@ -35,9 +35,10 @@ function Add() {
       setdata({
         name: "",
         description: "",
-        category: "Salad",
+        category: res.data.data.category,
         price: "",
       });
+
       setimage(false);
       toast.success(res.data.message);
     } else {
@@ -97,7 +98,7 @@ function Add() {
               <option value="Cake">Cake</option>
               <option value="Pure Veg">Pure Veg</option>
               <option value="Pasta">Pasta</option>
-              <option value="Noodles  ">Noodles </option>
+              <option value="Noodles">Noodles </option>
             </select>
           </div>
           <div className="add-price flex-col">

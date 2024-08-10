@@ -6,7 +6,8 @@ import { StoreContext } from "../../context/StoreContext";
 
 // eslint-disable-next-line react/prop-types
 const Navbar = ({ setshowLogin }) => {
-  const { getTotalCartAmount, token, settoken } = useContext(StoreContext);
+  const { getTotalCartAmount, token, settoken, userName } =
+    useContext(StoreContext);
 
   const naviate = useNavigate();
   const logout = () => {
@@ -71,10 +72,11 @@ const Navbar = ({ setshowLogin }) => {
                 <img src={assets.bag_icon} alt="" />
                 <p>orders</p>
               </li>
+
               <hr />
               <li>
                 <img src={assets.logout_icon} alt="" />
-                <p onClick={logout}>Logout</p>
+                <p onClick={logout}>{userName ? userName : "logout"}</p>
               </li>
             </ul>
           </div>

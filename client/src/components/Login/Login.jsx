@@ -8,7 +8,7 @@ import axios from "axios";
 function Login({ setshowLogin }) {
   const [currState, setcurrState] = useState("login");
 
-  const { url, settoken } = useContext(StoreContext);
+  const { url, settoken, setUserName } = useContext(StoreContext);
 
   const [data, setdata] = useState({
     name: "",
@@ -35,8 +35,13 @@ function Login({ setshowLogin }) {
 
     if (response.data.success) {
       settoken(response.data.token);
+
       localStorage.setItem("token", response.data.token);
       setshowLogin(false);
+
+      setUserName(response.data.user.name);
+      localStorage.setItem("userName", response.data.user.name);
+
       setdata({
         name: "",
         email: "",
