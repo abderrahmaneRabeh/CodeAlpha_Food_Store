@@ -16,17 +16,22 @@ function App() {
       <div className="app-content">
         <SideBar />
         <Routes>
+          <Route
+            path="/"
+            element={
+              <div style={{ padding: "20px" }}>
+                <h4 style={{ marginBottom: "10px" }}>Welcome to Admin Page</h4>
+                <p>
+                  This is the admin page where you can add or list the food
+                  items.
+                </p>
+              </div>
+            }
+          />
           <Route path="/add" element={<Add />} />
           <Route path="/list" element={<List />} />
           <Route path="/orders" element={<Order />} />
         </Routes>
-
-        <div style={{ padding: "20px" }}>
-          <h4 style={{ marginBottom: "10px" }}>Welcome to Admin Page</h4>
-          <p>
-            This is the admin page where you can add or list the food items.
-          </p>
-        </div>
       </div>
     </div>
   );

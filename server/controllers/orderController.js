@@ -93,4 +93,27 @@ const userOrders = async (req, res) => {
   }
 };
 
-export { placeOrder, verifyOrder, userOrders };
+// ALL ORDERS FOR ADMIN PANEL
+
+const allOrders = async (req, res) => {
+  try {
+    const orders = await orderModel.find({});
+    res.status(200).json({ success: true, orders });
+  } catch (error) {
+    res.status(404).json({ success: false, message: error.message });
+  }
+};
+
+// UPDATE ORDER STATUS FOR ADMIN PANEL
+
+const updateOrderStatus = async (req, res) => {
+  try {
+    const { orderId, status } = req.body;
+    await orderModel.findByIdAndUpdate(orderId, { status });
+    res.status(200).json({ success: true, message: "Status updated" });
+  } catch (error) {
+    res.status(404).json({ success: false, message: error.message });
+  }
+};
+
+export { placeOrder, verifyOrder, userOrders, allOrders, updateOrderStatus };
