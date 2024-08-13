@@ -6,6 +6,9 @@ import PlaceOlder from "./pages/placeOolder/PlaceOlder";
 import Footer from "./components/footer/Footer";
 import { useEffect, useState } from "react";
 import Login from "./components/Login/Login";
+import Verify from "./pages/Verify/Verify";
+import NotFound from "./pages/NotFound/NotFound";
+import MyOrders from "./pages/MyOrders/MyOrders";
 
 function App() {
   const [showLogin, setshowLogin] = useState(false);
@@ -29,6 +32,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<PlaceOlder />} />
+          <Route path="/verify" element={<Verify />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/Myorders" element={<MyOrders />} />
         </Routes>
       </div>
       <Footer />

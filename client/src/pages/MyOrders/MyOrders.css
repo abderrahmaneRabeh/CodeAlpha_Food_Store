@@ -1,0 +1,60 @@
+div.my-orders {
+  margin: 50px 0px;
+
+  & .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  & .order {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 2fr 1fr;
+    align-items: center;
+    gap: 30px;
+    font-size: 14px;
+    padding: 10px 20px;
+    color: #454545;
+    border: 1px solid tomato;
+
+    & img {
+      width: 50px;
+    }
+
+    & p span {
+      color: tomato;
+    }
+
+    & p b {
+      font-weight: 500;
+      color: #454545;
+    }
+
+    & button {
+      border: 1px solid tomato;
+      padding: 12px 0px;
+      border-radius: 5px;
+      background-color: #fff;
+      cursor: pointer;
+      color: #000000;
+      transition: 0.4s;
+
+      &:hover {
+        scale: 0.95;
+      }
+    }
+  }
+}
+
+@media (width < 900px) {
+  .order {
+    grid-template-columns: 1fr 2fr 1fr;
+    row-gap: 5px;
+    font-size: 12px;
+
+    & button {
+      font-size: 10px;
+    }
+  }
+}
